@@ -1,0 +1,55 @@
+<div class="container">
+    
+    <div class="row justify-content-center">
+        <h2>Reactive Form</h2>
+        <div class="col-md-6 text-left rounded shadow py-5">
+            <form [formGroup]="myReactiveForm" (ngSubmit)="OnSubmit()">
+                <div formGroupName="userDetails">
+                    <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text"  formControlName="email" class="form-control" id="email" placeholder="Enter email address" minlength="3"   maxlength="30">
+                    <small class="text-danger" *ngIf="!myReactiveForm.get('userDetails.email').valid && myReactiveForm.get('userDetails.email').touched">Please Enter Valid Email</small>
+                </div>
+                <div>
+                    <label for="Password">Password</label>
+                    <input type="password" formControlName="Password" class="form-control" id="Password"  pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,12}$"
+                    >
+                    <small class="text-danger" *ngIf="!myReactiveForm.get('userDetails.Password').value && myReactiveForm.get('userDetails.Password').touched && !myReactiveForm.get('userDetails.Password').pattern">Field is required & Password must be five characters</small>    
+                
+                </div>
+            </div>
+                <br>
+                <div class="form-group">
+                    <label for="courses">Select Course:-</label>
+                    <select formControlName="courses"  class="form-control" >
+                        <option>Advance</option>
+                        <option>Basic</option>
+                        <option>Pro</option>
+                    </select>
+                </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="date" >Date:-</label><br>
+                        <input type="date"  class="form-control" name="date" formControlName="date" placeholder="Enter Date" required>
+                        <small class="text-danger" *ngIf="!myReactiveForm.get('date').value && myReactiveForm.get('date').touched">Please Select date</small>
+                        
+                    </div>
+                    <br>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="row justify-content-center mt-2" *ngIf="isSubmitted">
+                <div class="col-md-12 rounded shadow py4">
+                  <h2>Form Data</h2>
+                
+                  <p>Email: <strong>{{ myReactiveForm.get('userDetails.email').value}}</strong></p>
+                  <p>Password: <strong>{{ myReactiveForm.get('userDetails.Password').value}}</strong></p>
+                  <p>Course: <strong>{{ myReactiveForm.get('courses').value}}</strong></p>
+                  <p>Date: <strong>{{ myReactiveForm.get('date').value}}</strong></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+<p>test1 works!</p>
+
+<button (click)="onClick()">Click Me</button>
+
+<h3>Count is:{{count}}</h3>
+
+<input type="text" (keyup)="onKeyUp($event)">
+
+<h2>Two way Binding</h2>
+
+<input type="text" [(ngModel)]="firstName">
+{{firstName}}
+<br>
+<br>
+<h3>This is Two Way Binding</h3>
+<label>UserName:-</label>
+<input type="text" [(ngModel)]="userName" maxlength="30">
+{{userName}}
+<button type="reset" [disabled]="!userName"  (click)="disable()">Reset</button>

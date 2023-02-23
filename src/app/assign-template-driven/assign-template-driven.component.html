@@ -1,0 +1,81 @@
+<h3>Template Registeration Form</h3>
+<mat-card class="registeration-page">
+    <mat-card-title>
+        Registeration Form
+    </mat-card-title>
+
+    <mat-card-content>
+        <form class="registertation-form" #registerationform="ngForm">
+
+            <label>First Name:</label>
+
+            <input matInput ngModel #firstName="ngModel" type="text" id="firstName" name="firstName" class="borderInput"
+                autofocus required minlength="5"  maxlength="10">
+
+            <mat-error *ngIf="firstName.errors?.minlength">
+                Minimum 5 characters
+            </mat-error>
+
+            <mat-error *ngIf="firstName.errors?.required"> This Field is required
+            </mat-error>
+
+            <label>Last Name:</label>
+            <input matInput ngModel #LastName="ngModel" type="text" id="LastName" name="LastName" class="borderInput"
+                required minlength="10"  maxlength="20">
+
+            <mat-error *ngIf="LastName.errors?.required"> This Field is required
+            </mat-error>
+
+            <mat-error *ngIf="LastName.errors?.minlength">
+                Maximum 10 characters
+            </mat-error>
+
+            <label>Age:</label>
+            <input matInput ngModel #Age="ngModel" type="number" id="Age" name="Age" class="borderInput"
+             required pattern="(?:1[7-9]|20)">
+
+             <mat-error *ngIf="Age.errors?.pattern">Enter age between 17 to 20</mat-error>
+
+            <label>Select City</label>
+            <select class="form-control" name="city" ngModel>
+                <option *ngFor="let city of city" value="{{city}}">
+                    {{city}}
+                </option>
+            </select>
+
+
+            <label>Email:</label>
+            <input matInput ngModel #email="ngModel" id="email" name="email" class="borderInput"
+             minlength="3"   maxlength="30" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}">
+            <mat-error *ngIf="email.errors?.required"> This email is mandatory
+            </mat-error>
+
+            <mat-error *ngIf="email.errors?.minlength">
+                your email must have minimum {{email.errors?.minlength.requiredlength}} chars
+                but you have only entered{{email.errors?.minlength.actuallength}}
+            </mat-error>
+
+            <mat-error *ngIf="email.errors?.pattern"> Enter Valid Domain like 'abc@gmail.com'</mat-error>
+           
+
+            <label>Password:</label>
+            <input matInput ngModel #password="ngModel" type="password" id="password" name="password"
+                class="borderInput" required minlength="3" maxlength="10" pattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,12}$" >
+            
+            <mat-error *ngIf="password.errors?.pattern">Password must have minimum 5 length</mat-error>
+
+            <label>Confirm Password:</label>
+            <input  matInput ngModel #Cpassword="ngModel" type="password" id="Cpassword" name="Cpassword"
+                class="borderInput" required minlength="5" maxlength="10" pattern="{{password.value}}">
+
+            <mat-error *ngIf="Cpassword.errors?.pattern">Password Missmatch</mat-error>
+          
+            <button class=" btn btn-primary" (click)="login(registertationform)">Submit</button>
+
+
+        </form>
+        <div class="form-val">
+            {{ registerationform.value | json}}
+        </div>
+    </mat-card-content>
+</mat-card>

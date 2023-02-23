@@ -1,0 +1,26 @@
+h3{
+    text-align: center;
+    background-color: aquamarine;
+   
+    
+}
+.registeration-page {
+    max-width: 450px;
+    margin: 20px auto 0 auto;
+}
+
+.registertation-form{
+    display: flex;
+    flex-direction:column;
+  
+   
+}
+.borderInput{
+
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.form-val {
+    margin-top: 10px;
+} 

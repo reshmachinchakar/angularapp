@@ -1,0 +1,37 @@
+<mat-card class="login-Page">
+    <mat-card-title>
+        Registeration Form
+    </mat-card-title>
+    <mat-card-content>
+        <form class="login-form" #loginForm="ngForm">
+
+            <mat-form-field>
+                <input matInput ngModel type="text" name="FirstName" placeholder="FirstName" maxlength="15" autofocus required>
+            </mat-form-field>
+            <br>
+            <br>
+            <mat-form-field>
+                <input matInput ngModel type="text" name="LastName" placeholder="LastName" required> </mat-form-field>
+            <br> <br>
+            <mat-form-field>
+                <input matInput ngModel type="number" name="Mobile No" placeholder="Contact No."
+                    required></mat-form-field> <br><br>
+            <mat-form-field>
+                <input matInput ngModel type="email" name="email" placeholder="Email" required>
+            </mat-form-field>
+            <br>
+            <br>
+            <mat-form-field>
+                <input matInput ngModel type="password" name="password" placeholder="Password" required>
+            </mat-form-field>
+            <br>
+            <br>
+            <br>
+            <button [disabled]="!loginForm.valid" mat-raised-button color="primary"
+                (click)="login(loginForm)">Submit</button>
+
+        </form>
+
+    </mat-card-content>
+
+</mat-card>

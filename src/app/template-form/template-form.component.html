@@ -1,0 +1,120 @@
+<mat-card class="login-page">
+    <mat-card-title>
+        Login (Template-Driven)
+    </mat-card-title>
+    <mat-card-content>
+        <form class="login-form" #loginForm="ngForm">
+    
+            <mat-form-field>
+               
+                <input matInput ngModel #email="ngModel" id="email" name="email"  placeholder="Email" 
+                pattern="^[a-zA-Z0-9.%+-]+@codemindtechnology.com$" minlength="3" maxlength="30"
+                    (blur)="check(email)" required>        
+                    <mat-error *ngIf="email.errors?.required"> This email is mandatory
+                    </mat-error>
+
+                    <mat-error *ngIf="email.errors?.pattern"> Enter Valid Domain like '***@codemindtechnology.com'</mat-error>
+           
+
+                <mat-error *ngIf="email.errors?.minlength">
+                    your email must have minimum {{email.errors?.minlength.requiredlength}} chars
+                    but you have only entered{{email.errors?.minlength.actuallength}}
+                </mat-error>
+                <small class="text-danger" *ngIf="isEmailValid">Email domain not allowed</small>
+            </mat-form-field>
+
+            <br>
+            <mat-form-field>
+                <label>Password:</label>
+                <input type="password"  matInput ngModel #password="ngModel" id="password" name="password"   minlength="8" maxlength="20"
+                    required>
+                     <!-- pattern="('^((?!.*[s])(?=.*[A-Z])(?=.*d).{8,99})')"> -->
+
+
+                    <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                    class="form-text text-danger"></div> -->
+                    <!-- <div *ngIf="password.errors?.required">
+                        Field is required
+                      </div> -->
+                      <!-- <div *ngIf="password.errors?.minlength.requiredlength">
+                        Password must contain at least one number, one uppercase and a lowercase letter 
+                        and at least 8 characters<br>Password cannot contain whitespace
+                      </div> -->
+
+                    <mat-error *ngIf="password.errors?.minlength">
+                        your password must have 8 {{password.errors?.minlength.requiredlength}} chars,special symobol,numbers
+                        Entered valid password{{password.errors?.minlength.actuallength}}
+                    </mat-error>
+
+            </mat-form-field>
+
+            <!-- <mat-form-field>
+                <label>Confirm Password:</label> -->
+                
+                <!-- <input matInput ngModel #confirmPass="ngModel" id="confirmPass" name="confirmPass"  minlength="8" maxlength="10"
+                required pattern="('^((?!.*[s])(?=.*[A-Z])(?=.*d).{8,99})')"  (keyup)='checkPasswords(password.value, confirmPass.value)'>
+
+                <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
+                class="form-text text-danger"></div>
+
+              <div *ngIf="confirmPass.errors?.required">
+                Field is required        
+              </div>
+              <div *ngIf="confirmPass.errors?.pattern">
+                Password must contain at least one number, one uppercase and a lowercase letter 
+                and at least 8 characters<br>Password cannot contain whitespace
+              </div>
+              <div *ngIf='!passwordsMatching && isConfirmPasswordDirty'>
+                Passwords did not match
+            </div> -->
+
+                <!-- <mat-error *ngIf="confirmPass.errors?.pattern">
+                  Password Missmatch
+                </mat-error>  -->
+
+                <!-- <mat-error *ngIf="password.errors?.actuallength==confirmPass.errors?.requiredlength">Password Confirmed
+                </mat-error>    -->
+            <!-- </mat-form-field> -->
+            <br>
+            <br>
+            <label>Select Course</label>
+            <select class="form-control" name="course" [ngModel]="defaultVal">
+                <option *ngFor="let course of course" value="{{course}}">
+                    {{course}}
+                </option>
+            </select>
+           
+            <br>
+            <br>
+            <label>Select Gender</label>
+            <div class="form-group" *ngFor="let gender of gender">
+                <input type="radio" name="gender" id="gender" value="{{gender.value}}" [ngModel]="defaultGender"
+                    class="custom-control custom-radio">
+                <label for="{{gender.id}}">{{gender.value}}</label>
+
+            </div>
+            <br>
+            <!-- <button [disabled]="!loginForm.valid" mat-raised-button color="primary"
+                (click)="login(loginForm)">Login</button> -->
+
+
+                <button [disabled]="!loginForm.valid" mat-raised-button color="primary"
+                (click)="login(loginForm)">Login</button>
+        </form>
+
+        <div class="form-val">
+            <!-- {{ loginForm.value | json}} -->
+         </div>
+    </mat-card-content>
+</mat-card>
+
+<div class="row justify-content-center mt2" *ngIf="isSubmitted">
+    <div class="col-md-6 rounded shadow py-4">
+        <h2>Form Data</h2>
+        <p>Email: <strong>{{formData.email}}</strong></p>
+        <p>Password: <strong>{{formData.password}}</strong></p>
+        <p>Course: <strong>{{formData.course}}</strong></p>
+        <p>Gender: <strong>{{formData.gender}}</strong></p>
+
+    </div>
+</div>
