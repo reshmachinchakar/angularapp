@@ -1,0 +1,25 @@
+<br>
+<!-- //This is Inbuilt Pipe provided by angular -->
+<br>
+<div>
+ Todays Date:-{{todaysdate | date:'dd/M/yyyy'}}<br>
+ Todays Date:-{{todaysdate | date:'fullDate'| uppercase}}<br>
+ Todays Date:-{{todaysdate | date:'h.m'}}<br>
+</div>
+
+    <p>Price:-{{price|currency:'INR'}}</p>
+    <p>Price:-{{price|currency:'USD'}}</p>
+    <p>Price:-{{price|currency:'EUR'}}</p>
+
+<div>
+  <p>JSON Pipe</p>
+  <p>{{employee | json}}</p>
+
+</div>
+<div>
+   <p>Pipe Example</p> 
+   <p>{{countLength}}</p>
+
+   <!-- using customPipe we can convert variable as a string & find its length -->
+   <p>Length of CountLength:-{{countLength|customPipe}}</p>
+</div>

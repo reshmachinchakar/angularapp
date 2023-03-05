@@ -11,12 +11,16 @@
   <mat-slide-toggle>Toggle me!</mat-slide-toggle> -->
 
   <!-- <app-assign-template-driven></app-assign-template-driven> -->
+<!-- 
+  <app-assign-reactive-form></app-assign-reactive-form>  -->
 
-  <app-assign-reactive-form></app-assign-reactive-form> 
+  <!-- <app-react-assign2></app-react-assign2> -->
+
+<!-- <app-combined-reactiveform></app-combined-reactiveform> -->
 
  <!-- <app-template-form></app-template-form>  -->
-
-<!-- <app-reactive-form></app-reactive-form> -->
+<!-- 
+<app-reactive-form></app-reactive-form> -->
 
 
 <!-- <app-login-form></app-login-form> -->
@@ -105,6 +109,71 @@
 <app-ngfor></app-ngfor>
 
 <app-ng-if></app-ng-if> -->
+<!-- 
+<ng-container *ngFor="let product of product">
+Product Name:<strong class="text-success">{{product.name}}</strong>
+Product ID:<strong class="text-success">{{ product.id}}</strong>
+</ng-container> -->
+
+<!-- 
+<app-pipe-example></app-pipe-example> -->
+<!-- 
+<app-product-filter></app-product-filter> -->
+
+<h4 style="text-align: center;color:navy;"><i>Users Data</i></h4>
+<!-- <div class="row justify-content-center">
+  <div class="col-md-8">
+      <label for="search">Search By Product</label>
+      <input type="text" class="form-control" placeholder="Search name here"
+      [(ngModel)]="searchName">
+  </div>
+  </div>
+<table class="table table-success table-striped">
+  
+  <thead style="background-color: green;">
+    
+      <th>id</th>
+      <th>name</th>
+      <th>username</th> 
+      <th>Email</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Website</th>
+  </thead>
+ <tbody>
+<tr *ngFor="let result of users | searchPipe:searchName">
+  <td>{{result.id}} </td>
+  <td>{{result.name}}</td>
+  <td>{{result.username}}</td>
+  <td>{{result.email}}</td>
+  <td>{{result.address.street +','+ result.address.suite+','+ result.address.city +','+result.address.zipcode }}</td>
+  <td>{{result.phone}}</td>
+  <td>{{result.website}}</td>
+</tr>
+ </tbody> 
+  
+</table> -->
+
+<table class="table table-success table-striped">
+  <thead>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Categary</th>
+    <th>Price</th>
+    <th>Brand</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let shows of showData">
+      <td>{{shows.id}}</td>
+      <td>{{shows.title}}</td>
+      <td>{{shows.category}}</td>
+      <td>{{shows.price}}</td>
+      <td>{{shows.brand}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 
 <router-outlet></router-outlet>

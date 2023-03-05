@@ -47,8 +47,17 @@ import { TemplateFormComponent } from './template-form/template-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { AssignTemplateDrivenComponent } from './assign-template-driven/assign-template-driven.component';
-import { PasswordComponent } from './password/password.component';
+
 import { AssignReactiveFormComponent } from './assign-reactive-form/assign-reactive-form.component';
+import { ReactAssign2Component } from './react-assign2/react-assign2.component';
+import { CombinedReactiveformComponent } from './combined-reactiveform/combined-reactiveform.component';
+import { DependancyInjectionLearningComponent } from './dependancy-injection-learning/dependancy-injection-learning.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PipeExampleComponent } from './pipe-example/pipe-example.component';
+import { CustomPipePipe } from './custom-pipe.pipe';
+import { SearchPipePipe } from './search-pipe.pipe';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
+
 
 
 
@@ -73,8 +82,16 @@ import { AssignReactiveFormComponent } from './assign-reactive-form/assign-react
     LoginFormComponent,
     ReactiveFormComponent,
     AssignTemplateDrivenComponent,
-    PasswordComponent,
+   
     AssignReactiveFormComponent,
+    ReactAssign2Component,
+    CombinedReactiveformComponent,
+    DependancyInjectionLearningComponent,
+    PipeExampleComponent,
+    CustomPipePipe,
+    SearchPipePipe,
+    ProductFilterComponent,
+ 
    
     
   ],
@@ -106,7 +123,8 @@ import { AssignReactiveFormComponent } from './assign-reactive-form/assign-react
     MatCheckboxModule,
     MatStepperModule,
     MatProgressBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
 
   ],
   providers: [],

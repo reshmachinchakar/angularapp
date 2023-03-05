@@ -1,0 +1,71 @@
+
+  <div class="form-container" fxLayout="row" fxLayoutAlign="center center">
+    
+    <div class="container" fxLayout="column">
+        <img class="user-image" src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359554_1280.png" height="100px" width="100px" alt="user image">
+    </div>
+    <form [formGroup]="userDetailsForm" class="form-left" fxLayout="column" fxLayoutAlign="center start">
+      <h2 class="form-heading">User Details</h2>
+      <mat-form-field>
+        <mat-label>Full Name</mat-label>
+        <input matInput type="text" formControlName="fullName" required>
+      </mat-form-field>
+      <mat-form-field fxFlex>
+        <mat-label>Birthdate</mat-label>
+        <input matInput type="date" formControlName="birthdate" required>
+      </mat-form-field>
+      <mat-form-field fxFlex>
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender" required>
+          <mat-option value="" disabled selected>Select a gender</mat-option>
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Other">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex>
+        <mat-label>Country</mat-label>
+        <mat-select formControlName="country" required>
+          <mat-option value="" disabled selected>Select a country</mat-option>
+          <mat-option value="India">India</mat-option>
+          <mat-option value="United">United State</mat-option>
+       
+          <!-- Add more countries as needed -->
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field fxFlex>
+        <mat-label>Phone Number</mat-label>
+        <input matInput type="tel" formControlName="phoneNumber" required>
+      </mat-form-field>
+      <mat-form-field fxFlex>
+        <mat-label>Bio</mat-label>
+        <textarea matInput formControlName="bio"></textarea>
+      </mat-form-field>
+    </form>
+    
+  
+    <form [formGroup]="accountDetailsForm" class="form-right" fxLayout="column" fxLayoutAlign="center start">
+      <h2 class="form-heading">Account Details</h2>
+      <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matInput type="text" formControlName="userName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword" required>
+        <mat-error *ngIf="passwordsDoNotMatch()">Passwords do not match.</mat-error>
+      </mat-form-field>
+      <mat-checkbox formControlName="terms">
+        I accept the terms and conditions.
+      </mat-checkbox>
+      <button mat-raised-button  color="primary" type="submit" [disabled]="accountDetailsForm.invalid || !accountDetailsForm.get('terms').value">Submit</button>
+    </form>
+  </div>

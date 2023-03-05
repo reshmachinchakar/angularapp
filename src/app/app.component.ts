@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DemoService } from './Services/demo.service';
+import { ForExService } from './Services/for-ex.service';
+import { MyserviceService } from './Services/myservice.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angularapp';
   name='Reshma';
 
@@ -26,10 +29,41 @@ export class AppComponent {
     }
   ]
   empcount;
-  constructor()
+
+  product={};
+
+  users;
+
+  show;
+
+  searchName='';
+  constructor( private myservice:MyserviceService,private demoservice:DemoService,private forexObj:ForExService)
   {
     this.getMethods();
+  }
 
+  showData;
+
+  ngOnInit(): void {
+    // throw new Error('Method not implemented.');
+
+    this.product=this.myservice.product;
+    // this.demoservice.getuser().subscribe(res=>{
+    //   console.log('user api results',res);
+    //   this.users=res;
+    // }), err =>{
+    //   console.log(err);
+      
+    // }
+    this.forexObj.getusers().subscribe(result=>{
+      console.log('api results',result);
+
+      this.showData=result;
+      
+    }),err=>{
+      console.log(err);
+      
+    }
   }
 
   getMethods(){

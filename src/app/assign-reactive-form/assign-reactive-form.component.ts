@@ -20,7 +20,7 @@ export class AssignReactiveFormComponent implements OnInit {
   createForm()
   {
     this.myReactiveForm = new FormGroup({
-      'userDetails':new FormGroup({ 'Password' : new FormControl(null,[Validators.required,Validators.minLength(3),Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,12}$')]),
+      'userDetails':new FormGroup({ 'Password' : new FormControl(null,Validators.required),
       'email': new FormControl(null,[Validators.required,Validators.email]),}), 
       'courses':new FormControl('Advance'),
       'date':new FormControl(null,Validators.required),
